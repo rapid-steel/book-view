@@ -1,0 +1,262 @@
+body { height: auto; }
+
+.page,
+.animate {
+    position: absolute;
+    top: 0;
+}
+.animate {
+    z-index: 3;
+    height: 100%;
+}
+
+.down {
+    position: relative;
+    top: 0;
+    z-index: -1;
+}
+.page-1 {
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+.page-2.right {
+    right: 50%;
+    z-index: 1;
+    text-align: right;
+}
+.page-2.left {
+    left: 50%;
+    z-index: 0;
+    text-align: left;
+}
+.wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.scale-0 .wrapper,
+.scale-0 .page img,
+.scale-2 .page-2 {  width: auto; }
+.scale-1 .page-1,
+.scale-1 .wrapper,
+.scale-1 .page img { width: 100%; }
+.scale-1 .page-2 { width: 50%; }
+
+.scale-0 .page,
+.scale-0 .wrapper,
+.scale-0 .page img {  height: 100%; }
+.scale-1 .page,
+.scale-1 .wrapper,
+.scale-1 .page img,
+.scale-2 .page { height: auto;}
+
+.scale-1 .animate { height: 100%!important;}
+
+.page-1.right .animate,
+.page-2.left .animate  { left: 0; }
+.page-2.right .animate,
+.page-1.left .animate { right: 0; }
+
+.controls {
+    position: relative;
+    top: 100%;
+    margin: 0 auto;
+    height: 40px;
+    display: none;
+}
+.controls > div { display: none; }
+
+.arrows {
+    margin: 0 auto;
+    height: 40px;
+    text-align: center;
+}
+.arrows > div {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 3px;
+}
+.arrow {
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    cursor: pointer;
+}
+.arrow.unactive {
+    opacity: .3;
+    cursor: default;
+}
+.to-left { border-right-color: black!important; }
+.to-right { border-left-color: black!important; }
+
+.numbers {
+    font-family: 'Lucida Console', monospace;
+    font-weight: 800;
+}
+.mode,
+.scale,
+.animation,
+.to-page {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 40px;
+}
+.mode > div,
+.scale > div:first-child,
+.animation > div,
+.to-page input { background-color: white; }
+.mode {
+    left: 0;
+    text-align: center;
+}
+.mode > div:first-child,
+.mode > div:nth-child(2) {
+    width: 12px;
+    height: 26px;
+    margin: 5px 1px;
+    display: inline-block;
+    border: 2px black solid;
+}
+.page-2 + .controls .mode > div:nth-child(2) {  display: none; }
+.mode > div:nth-child(3) {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 12px;
+    border: 2px black solid;
+    border-radius: 50%;
+}
+.page-1 + .controls .mode > div:nth-child(3):before { content: '2'; }
+.page-2 + .controls .mode > div:nth-child(3):before { content: '1'; }
+
+.scale { left: 50px; }
+
+.scale > div {  position: absolute; }
+.scale > div:first-child { border: 2px black solid; }
+.scale-2 .scale > div:first-child {
+    left: 15px;
+    top: 13px;
+    width: 6px;
+    height: 10px;
+}
+.scale-0 .scale > div:first-child {
+    left: 11px;
+    top: 5px;
+    width: 14px;
+    height: 26px;
+}
+.scale-1 .scale > div:first-child {
+    left: 10px;
+    top: 3px;
+    width: 16px;
+    height: 30px;
+}
+.scale > div:nth-child(2) {
+    left: 8px;
+    top: 10px;
+    width: 20px;
+    height: 16px;
+    border: 2px black dashed;
+}
+.scale-1 .scale > div:nth-child(2) { display: none; }
+.animation { left: 95px; }
+.animation > div {
+    margin: 11px 6px;
+    width: 24px;
+    height: 14px;
+    font-size: 8px;
+    font-weight: 400;
+    font-family: "Lucida Console", monospace;
+    text-align: center;
+    line-height: 14px;
+    border: 2px black solid;
+    border-radius: 3px;
+    opacity: 1;
+}
+.animation > div:before { content: 'anim'; }
+.animation.unactive > div { opacity: .3; }
+
+.to-page {
+    width: 180px;
+    right: 0;
+    font-family: "Lucida Fax", monospace;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 40px;
+    vertical-align: middle;
+}
+.to-page input {
+    width: 30px;
+    height: 20px;
+    padding: 0 1px;
+    font: inherit;
+    border: 2px black solid;
+    border-radius: 7px;
+}
+.to-page-arrow {
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    margin-bottom: -3px;
+    display: inline-block;
+    border: 10px transparent solid;
+    border-left-color: black;
+}
+.pages-sum {
+    display: inline-block;
+}
+
+.mode,
+.scale,
+.animation,
+.to-page-arrow { cursor: pointer; }
+
+.decoration {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+}
+.page-1.p2 .decoration { display: none;}
+
+.spiral .page-1.right .decoration,
+.spiral .page-2.left .decoration { left: -15px; }
+.spiral .page-1.left .decoration,
+.spiral .page-2.right .decoration { right: -15px; }
+
+.spiral .decoration {
+    width: 30px;
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
+.spiral .page-2 .decoration { background-image: url(decoration/spiral-1.png); }
+.spiral .page-1.left .decoration { background-image: url(decoration/spiral-2.png); }
+.spiral .page-1.right .decoration { background-image: url(decoration/spiral-3.png); }
+
+.bookmark .page-1 .decoration,
+.bookmark .page-2.p2 .decoration {
+    top: -5px;
+    width: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bookmark .page-1.right .decoration,
+.bookmark .page-2.left .decoration {
+    left: 0;
+    background-image: url(decoration/bookmark.png);
+}
+.bookmark .page-1.left .decoration,
+.bookmark .page-2.right .decoration {
+    right: 0;
+    background-position-x: right;
+    background-image: url(decoration/bookmark-2.png);
+}

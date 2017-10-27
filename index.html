@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="book-styles.css">
+	<title>Book</title>
+</head>
+<body>
+
+
+<div id="book" style="height: 300px; width: 800px; margin: 0 auto;"></div>
+
+
+<script src="jquery-3.1.1.min.js"></script>
+<script src="js/page.js"></script>
+<script src="js/opening.js"></script>
+<script src="js/book-code.js"></script>
+<script src="js/book.js"></script>
+<script>
+
+	$('#book').book({
+		folder: 'sample/',
+		mask: '000',
+		type: 'jpg',
+		start: 6,
+		end: 10,
+		mode: 2,
+		cover: true,
+		direction: 'right',
+		controls: 'arrows mode scale to-page animation',
+		keys: true,
+		animation: true,
+		speed: 200,
+		decoration: 'bookmark'
+
+	});
+
+
+
+</script>
+
+</body>
+</html>
